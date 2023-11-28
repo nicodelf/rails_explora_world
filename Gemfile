@@ -34,14 +34,14 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
 gem 'pundit'
-gem 'cloudinary', '~> 1.16.0'
-gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'cloudinary'
+gem 'faker'
 
 gem 'twilio-ruby'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
-gem 'pg_search', '~> 2.3.0'
+
 gem 'simple_form'
 
 group :development, :test do  gem 'pry-byebug'

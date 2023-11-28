@@ -58,8 +58,8 @@ raph = User.new({
   password_confirmation: "PASSWORD"
 })
 raph.agency = agency1
-file = URI.open("https://avatars.githubusercontent.com/u/88970113?v=4")
-raph.photo.attach(io: file, filename: "#{raph.last_name}-1")
+# file = URI.open("https://avatars.githubusercontent.com/u/88970113?v=4")
+raph.photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/88970113?v=4"), filename: "#{raph.last_name}-1")
 raph.save!
 
 
@@ -125,22 +125,22 @@ agents = [raph, nico, antho, julien]
 
 fake_users = [raph, antho, julien]
 
-url1 = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1539711591/f534ccgpn41ldspdnpjf.jpg"
+url1 = "https://avatars.githubusercontent.com/u/8135012?v=4"
 url2 = "https://avatars.githubusercontent.com/u/8135012?v=4"
-url3 = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1585588520/j0m6tlufeayghsj1uqdv.jpg"
+url3 = "https://avatars.githubusercontent.com/u/8135012?v=4"
 url4 = "https://avatars.githubusercontent.com/u/43373459?v=4"
 url5 = "https://avatars.githubusercontent.com/u/67561419?v=4"
-url6 = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1641761662/hh58c3zauyocldxakd32.jpg"
+url6 = "https://avatars.githubusercontent.com/u/8135012?v=4"
 url7 = "https://avatars.githubusercontent.com/u/39793588?v=4"
 url8 = "https://avatars.githubusercontent.com/u/96469106?v=4"
 url9 = "https://avatars.githubusercontent.com/u/65026732?v=4"
 url10 = "https://avatars.githubusercontent.com/u/96442481?v=4"
-url11 = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1641772302/dtm2zg3o6scbtsxinmkb.jpg"
+url11 = "https://avatars.githubusercontent.com/u/8135012?v=4"
 url12 = "https://avatars.githubusercontent.com/u/86692082?v=4"
-url13 = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1641812431/p0bndradvq1oioufn2mx.jpg"
+url13 = "https://avatars.githubusercontent.com/u/8135012?v=4"
 url14 = "https://avatars.githubusercontent.com/u/96295313?v=4"
 url15 = "https://avatars.githubusercontent.com/u/89845255?v=4"
-url16 = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1641934018/ht03mphxzhpaui3w0ebr.jpg"
+url16 = "https://avatars.githubusercontent.com/u/8135012?v=4"
 
 
 photos_url = [url1, url2, url3, url4, url5, url6, url7, url8, url9, url10, url11, url12, url13, url14, url15, url16]
@@ -246,26 +246,26 @@ file = URI.open("https://www.biarritz-pays-basque.com/wp-content/uploads/2019/05
 offer3.photos.attach(io: file, filename: "#{offer3.title}-3")
 offer3.save!
 
-offer4 = Offer.new({
-  address: "1 Av. de la Plage, 64200 Biarritz",
-  description: "Arcangues, rendu célèbre par LUIS MARIANO, est un magnifique village vallonné qui a le charme d'un décor d'opérette. It is a commune in the Pyrénées-Atlantiques department in the Nouvelle-Aquitaine region of southwestern France in what was formerly the Basque province of Labourd. ",
-  video_type: "Live",
-  city: "Arcangues",
-  title: "Arcangues",
-  price: rand(5.0..10.0).round(1)
-})
+# offer4 = Offer.new({
+#   address: "1 Av. de la Plage, 64200 Biarritz",
+#   description: "Arcangues, rendu célèbre par LUIS MARIANO, est un magnifique village vallonné qui a le charme d'un décor d'opérette. It is a commune in the Pyrénées-Atlantiques department in the Nouvelle-Aquitaine region of southwestern France in what was formerly the Basque province of Labourd. ",
+#   video_type: "Live",
+#   city: "Arcangues",
+#   title: "Arcangues",
+#   price: rand(5.0..10.0).round(1)
+# })
 
-offer4.user = nico
-offer4.category = category1
-file = URI.open("https://www.barnes-cotebasque.com/uploads/posts/24/pictures/2775/show_detail.jpg?1605257263")
-offer4.photos.attach(io: file, filename: "#{offer4.title}-1")
+# offer4.user = nico
+# offer4.category = category1
+# file = URI.open("https://www.barnes-cotebasque.com/uploads/posts/24/pictures/2775/show_detail.jpg?1605257263")
+# offer4.photos.attach(io: file, filename: "#{offer4.title}-1")
 
-file = URI.open("https://www.mediabask.eus/media/asset_publics/resources/000/855/264/article_main_landscape/chateau.jpg")
-offer4.photos.attach(io: file, filename: "#{offer4.title}-2")
+# file = URI.open("https://www.mediabask.eus/media/asset_publics/resources/000/855/264/article_main_landscape/chateau.jpg")
+# offer4.photos.attach(io: file, filename: "#{offer4.title}-2")
 
-file = URI.open("https://images.ctfassets.net/zfxytrk6nf7m/20KMrrsQdzSwAN63TM0W64/076628d9b1b0e8ed30db30a7b2bd291d/17-04-21-Corpo-Golf-Darcangues-20-03-46-1280.jpg?q=90&fl=progressive&fit=fill")
-offer4.photos.attach(io: file, filename: "#{offer4.title}-3")
-offer4.save!
+# file = URI.open("https://images.ctfassets.net/zfxytrk6nf7m/20KMrrsQdzSwAN63TM0W64/076628d9b1b0e8ed30db30a7b2bd291d/17-04-21-Corpo-Golf-Darcangues-20-03-46-1280.jpg?q=90&fl=progressive&fit=fill")
+# offer4.photos.attach(io: file, filename: "#{offer4.title}-3")
+# offer4.save!
 
 offer5 = Offer.new({
   address: "8 Rue de Montpensier, 75001 Paris",
@@ -638,9 +638,9 @@ offer21.save!
 
 video_type = ["Live", "VoD", "Both"]
 
-offers = [offer1, offer2, offer3, offer4, offer5, offer6, offer7, offer8, offer9, offer10, offer11, offer12, offer13, offer14, offer15, offer16, offer17, offer18, offer19, offer20, offer21]
+offers = [offer1, offer2, offer3, offer5, offer6, offer7, offer8, offer9, offer10, offer11, offer12, offer13, offer14, offer15, offer16, offer17, offer18, offer19, offer20, offer21]
 
-offers_for_seeds = [offer2, offer3, offer4, offer5, offer6, offer7, offer8, offer9, offer10, offer11, offer12, offer13, offer14, offer15, offer16, offer17, offer18, offer19, offer20, offer21]
+offers_for_seeds = [offer2, offer3, offer5, offer6, offer7, offer8, offer9, offer10, offer11, offer12, offer13, offer14, offer15, offer16, offer17, offer18, offer19, offer20, offer21]
 
 
 #Seed of slots + chatrooms
@@ -673,7 +673,7 @@ chatroom.save!
 
 #Seed for user Anthony
 
-offers1 = [offer2, offer3, offer4, offer5, offer6, offer7]
+offers1 = [offer2, offer3, offer5, offer6, offer7]
 
 offers2 = [offer18, offer19, offer20, offer21]
 
