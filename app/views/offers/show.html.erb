@@ -103,7 +103,7 @@
             <div class="card-cta-price d-flex align-items-center">
               <h2 class="text-white"><%= 5*@offer.price.round %>€</h2>
             </div>
-            <button class="card-cta-booking"><%= link_to "Register", slot_rentals_path(@offer.slots.all[0]), method: :post%></button>
+            <button class="card-cta-booking"><%= link_to "Register", slot_rentals_path(@offer.slots.all[0]), data: { turbo_method: :post } %></button>
           </div>
         </div>
       </div>

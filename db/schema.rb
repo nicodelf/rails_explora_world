@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_03_151402) do
-
+ActiveRecord::Schema[7.0].define(version: 2023_11_28_101533) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,7 +19,7 @@ ActiveRecord::Schema.define(version: 2022_03_03_151402) do
     t.string "record_type", null: false
     t.bigint "record_id", null: false
     t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
+    t.datetime "created_at", precision: nil, null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
@@ -32,8 +31,8 @@ ActiveRecord::Schema.define(version: 2022_03_03_151402) do
     t.text "metadata"
     t.string "service_name", null: false
     t.bigint "byte_size", null: false
-    t.string "checksum", null: false
-    t.datetime "created_at", null: false
+    t.string "checksum"
+    t.datetime "created_at", precision: nil, null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
@@ -45,19 +44,19 @@ ActiveRecord::Schema.define(version: 2022_03_03_151402) do
 
   create_table "agencies", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "chatrooms", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "slot_id"
     t.index ["slot_id"], name: "index_chatrooms_on_slot_id"
   end
@@ -66,16 +65,16 @@ ActiveRecord::Schema.define(version: 2022_03_03_151402) do
     t.bigint "offer_id", null: false
     t.string "question"
     t.text "answer"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["offer_id"], name: "index_flashcards_on_offer_id"
   end
 
   create_table "messages", force: :cascade do |t|
     t.bigint "chatroom_id", null: false
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.text "content"
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
@@ -90,8 +89,8 @@ ActiveRecord::Schema.define(version: 2022_03_03_151402) do
     t.string "city"
     t.string "title"
     t.float "price"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
     t.index ["category_id"], name: "index_offers_on_category_id"
@@ -101,8 +100,8 @@ ActiveRecord::Schema.define(version: 2022_03_03_151402) do
   create_table "rentals", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "slot_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["slot_id"], name: "index_rentals_on_slot_id"
     t.index ["user_id"], name: "index_rentals_on_user_id"
   end
@@ -111,17 +110,17 @@ ActiveRecord::Schema.define(version: 2022_03_03_151402) do
     t.bigint "rental_id", null: false
     t.text "content"
     t.integer "rating"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["rental_id"], name: "index_reviews_on_rental_id"
   end
 
   create_table "slots", force: :cascade do |t|
     t.bigint "offer_id", null: false
-    t.datetime "start_at"
+    t.datetime "start_at", precision: nil
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["offer_id"], name: "index_slots_on_offer_id"
     t.index ["user_id"], name: "index_slots_on_user_id"
   end
@@ -130,10 +129,10 @@ ActiveRecord::Schema.define(version: 2022_03_03_151402) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
     t.boolean "is_guide"
